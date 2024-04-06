@@ -1,28 +1,36 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+import Vue from 'vue'
+import App from './App.vue'
 
-// router
-import router from "./router";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import VueParallaxJs from 'vue-parallax-js'
+import VueScrollTo from 'vue-scrollto'
+import VueRouter from 'vue-router'
+import VTooltip from 'v-tooltip'
 
-// bootstrap bundle
-import bootstrap from "bootstrap/dist/js/bootstrap.bundle";
+var VueCookie = require('vue-cookie');
 
-import { createMetaManager, defaultConfig } from "vue-meta";
-const metaManager = createMetaManager(false, {
-  ...defaultConfig,
-  meta: { tag: "meta", nameless: true },
-});
+Vue.use(VTooltip)
+Vue.use(VueRouter)
+Vue.use(VueScrollTo)
+Vue.use(VueCookie);
+Vue.use(VueParallaxJs)
 
-// font aswesome
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faFileLines } from "@fortawesome/free-regular-svg-icons";
-import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons";
-library.add(faLinkedinIn, faGithub, faFileLines);
+Vue.config.productionTip = false
 
-createApp(App)
-  .use(bootstrap)
-  .component("font-awesome-icon", FontAwesomeIcon)
-  .use(router)
-  .use(metaManager)
-  .mount("#app");
+const routes = [
+  { path: '/'}
+]
+
+const router = new VueRouter({
+  mode:'history',
+  routes // short for `routes: routes`
+})
+
+new Vue({
+  created () {
+    AOS.init()
+  },
+  router,
+  render: h => h(App),
+}).$mount('#app')
