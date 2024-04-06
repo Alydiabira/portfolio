@@ -1,136 +1,252 @@
 <template>
-  <metainfo> </metainfo>
-
-  <div
-    class="scrollspy-example"
-    data-bs-offset="0"
-    data-bs-spy="scroll"
-    data-bs-target="#main-nav"
-    tabindex="0"
-  >
-    <!-- Render active component contents with vue transition -->
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
-
-    <!-- Scroll to top -->
-    <back-to-top
-      visibleoffset="500"
-      right="30px"
-      bottom="20px"
-      class="shadow-lg"
-    >
-      <i data-feather="chevron-up"></i>
-    </back-to-top>
+  <div id="app" :class="{ 'text-dark': !nightMode, 'text-light': nightMode }">
+    <Navbar @scroll="scrollTo" @nightMode="switchMode" :nightMode="nightMode" />
+    <div class="parent">
+      <Home :nightMode="nightMode" />
+      <About id="about" :nightMode="nightMode" />
+      <Skills id="skills" :nightMode="nightMode" />
+      <Portfolio id="portfolio" :nightMode="nightMode" />
+      <Recommendation :nightMode="nightMode" />
+      <Contact id="contact" :nightMode="nightMode" />
+      <Footer :nightMode="nightMode" />
+    </div>
   </div>
 </template>
+
 <script>
-// aos
-// import AOS from "aos";
-// import "aos/dist/aos.css";
-import { useMeta } from "vue-meta";
+import Navbar from "./components/Navbar.vue";
+import Home from "./components/Home";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Portfolio from "./components/Portfolio";
+import Recommendation from "./components/Recommendation";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
+import info from "../info";
 
 export default {
-  data: () => {
+  name: "App",
+  components: {
+    Navbar,
+    Home,
+    About,
+    Skills,
+    Portfolio,
+    Recommendation,
+    Contact,
+    Footer,
+  },
+  data() {
     return {
-      webTitle: "Nikita RUSETSKII - Backend Developer",
+      nightMode: false,
+      config: info.config,
     };
   },
-  setup() {
-    useMeta({
-      title: "Nikita RUSETSKII - Backend Developer",
-      description: "Just a guy with passion for coding",
-      htmlAttrs: {
-        lang: "en",
-        amp: true,
-      },
-      twitter: {
-        title: "Nikita RUSETSKII - Backend Developer",
-        description: "Just a guy with passion for coding",
-        card: "summary_large_image",
-        image: "https://rusetskii.dev" + require(`@/assets/images/preview.jpg`),
-      },
-      og: {
-        title: "Nikita RUSETSKII - Backend Developer",
-        description: "Just a guy with passion for coding",
-        type: "website",
-        url: "https://rusetskii.dev/",
-        image: "https://rusetskii.dev" + require(`@/assets/images/preview.jpg`),
-        site_name: "Nikita RUSETSKII - Backend Developer",
-      },
-      meta: [
-        {
-          name: "keywords",
-          content:
-            "software developer, software engineer, backend developer, fullstack developer, machine learning engineer, AI researcher, developer portfolio",
-        },
-        {
-          name: "author",
-          content: "Nikita Rusetskii",
-        },
-      ],
-      link: [
-        {
-          rel: "icon",
-          href: require(`@/assets/images/favicon.png`),
-        },
-      ],
+  created() {
+    if (this.config.use_cookies) {
+      this.nightMode = this.$cookie.get("nightMode") === "true" ? true : false;
+    }
+  },
+  mounted() {
+    ["about", "contact", "skills", "portfolio"].forEach((l) => {
+      if (window.location.href.includes(l)) {
+        var elementPosition = document.getElementById(l).offsetTop;
+        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
+      }
     });
   },
-  // mounted() {
-  //   AOS.init();
-  // },
+  methods: {
+    switchMode(mode) {
+      if (this.config.use_cookies) {
+        this.$cookie.set("nightMode", mode);
+      }
+      this.nightMode = mode;
+    },
+    scrollTo(ele) {
+      if (ele == "home") {
+        this.$router.push(`/`);
+        window.scrollTo({ top: -80, behavior: "smooth" });
+      } else {
+        var elementPosition = document.getElementById(ele).offsetTop;
+        window.scrollTo({ top: elementPosition - 35, behavior: "smooth" });
+        if (this.$router.history.current.path !== `/${ele}`)
+          this.$router.push(`/${ele}`);
+      }
+    },
+  },
 };
 </script>
-<style lang="scss">
-html {
-  scroll-behavior: smooth;
+
+<style>
+#app {
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  width: 100%;
 }
 
-body {
+@media screen and (max-width: 580px) {
+  #app {
+    width: fit-content;
+  }
+}
+
+.parent {
+  margin-top: 38px;
+  padding-top: 40px;
   position: relative;
-  font-family: $default-family;
-  font-size: $default-font-size;
 }
 
+.pgray {
+  color: #535a5e;
+}
+
+.pblue {
+  color: #669db3ff;
+}
+
+.bg-dark2 {
+  background-color: #262c30 !important;
+}
+
+.text-light {
+  color: #d3d2d2 !important;
+}
+
+.p-st {
+  transition: all 0.5s !important;
+}
+
+/* To set scrollbar width */
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 5px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #363636;
-}
-
+/* Track */
 ::-webkit-scrollbar-track {
-  background: #fff;
+  background: #f1f1f1;
+  border-radius: 9px;
+  border: 2px solid white; /* Use your background color instead of White */
+  background-clip: content-box;
 }
 
-.btn {
-  border-width: 1px;
-  cursor: pointer;
-  justify-content: center;
-  padding: calc(0.5em - 1px) 1em;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-appearance: none;
-  align-items: center;
-  border-radius: 4px;
-  box-shadow: none;
-  display: inline-flex;
-  font-size: 1rem;
-  height: 2.5em;
-  line-height: 1.5;
-  position: relative;
-  vertical-align: top;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 9px;
 }
 
-.btn-primary {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.tooltip {
+  display: block !important;
+  z-index: 10000;
+}
+
+.tooltip .tooltip-inner {
+  background: rgb(212, 149, 97);
   color: white;
+  border-radius: 8px;
+  font-size: 10px;
+  /* padding: 5px 10px 4px; */
 }
 
-a,
-a:active,
-a:visited {
-  text-decoration: none !important;
+.tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+  border-color: rgb(212, 149, 97);
+  z-index: 1;
+}
+
+.tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+}
+
+.tooltip[x-placement^="top"] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="bottom"] {
+  margin-top: 10px;
+}
+
+.tooltip[x-placement^="bottom"] .tooltip-arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent !important;
+  border-right-color: transparent !important;
+  border-top-color: transparent !important;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tooltip[x-placement^="right"] {
+  margin-left: 5px;
+}
+
+.tooltip[x-placement^="right"] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent !important;
+  border-top-color: transparent !important;
+  border-bottom-color: transparent !important;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip[x-placement^="left"] {
+  margin-right: 5px;
+}
+
+.tooltip[x-placement^="left"] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent !important;
+  border-right-color: transparent !important;
+  border-bottom-color: transparent !important;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tooltip.popover .popover-inner {
+  background: #f9f9f9;
+  color: black;
+  padding: 24px;
+  border-radius: 5px;
+  box-shadow: 0 5px 30px rgba(black, 0.1);
+}
+
+.tooltip.popover .popover-arrow {
+  border-color: #f9f9f9;
+}
+
+.tooltip[aria-hidden="true"] {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+.tooltip[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s;
 }
 </style>
