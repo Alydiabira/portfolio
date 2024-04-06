@@ -1,6 +1,6 @@
 let info = {
-  name: "Hrishikesh Paul",
-  logo_name: "paul",
+  name: "Aly Diabira",
+  logo_name: "aly",
   flat_picture: require("./src/assets/potrait.jpg"),
   config: {
     use_cookies: true,
@@ -11,8 +11,8 @@ let info = {
   description:
     "A second year Computer Science graduate student at Indiana University Bloomington with an interest in Software Development, UX Design and Artificial Intelligence - and seeking exciting opportunities related to the same.<br><br>I am a detail oriented person and I keep my goals and tasks organized to maintain productivity. I would bring to table a wide range of software skills, ranging from design and development to writing scripts for intelligent agents. I believe that the skills that I have attained from the dynamic environment and competitive university life define me, and I am looking forward to implementing and polishing them in any opportunity that I receive. ",
   links: {
-    linkedin: "https://www.linkedin.com/in/hrishikeshpaul/",
-    github: "https://github.com/hrishikeshpaul",
+    linkedin: "https://www.linkedin.com/in/aly-diabira/",
+    github: "https://github.com/Alydiabira",
     angellist: "https://angel.co/u/hrishikesh-paul",
     resume:
       "https://github.com/hrishikeshpaul/portfolio-template/blob/master/src/assets/pdfs/Resume.pdf"
@@ -212,7 +212,7 @@ let info = {
       technologies: ["Node", "Vue", "Express", "MongoDB", "Heroku"],
       category: "Website",
       date: "Sep, 2019 - Dec  , 2019",
-      github: "https://github.com/hrishikeshpaul/noq",
+      github: "https://github.com/Alydiabira",
       visit: "https://noq-client.herokuapp.com/",
       description:
         "No Q, is a revolutionary tool which allows for both employers and students to skip the hassle seen in modern day career fairs. For the students, there is an intuitive profile builder where you can add things like education, skills, certifications, honors, and experiences. No Q is not only good for students, but employers as well! A common problem at modern career fairs is the number of unqualified candidates who waste their time when they could be chatting with someone else. With No Q, only the students who meet the positions’ criteria will be able to apply, and from there the recruiter can invite them to talk in more detail at the career fair through our intuitive messaging system."
@@ -235,7 +235,7 @@ let info = {
         "Heroku"
       ],
       category: "Algorithm",
-      github: "https://github.com/hrishikeshpaul/pos-tagger",
+      github: "https://github.com/Alydiabira",
       date: "Oct, 2019 - Nov, 2019",
       visit: "https://post-client.herokuapp.com/",
       description:
@@ -254,7 +254,7 @@ let info = {
       technologies: ["Node", "Angular", "Express", "Leaflet", "Pandas"],
       category: "Website",
       date: "Oct, 2018 - Nov, 2018",
-      github: "https://github.com/hrishikeshpaul/whodata",
+      github: "https://github.com/Alydiabira",
       visit: "https://skylarktiral.herokuapp.com/",
       description:
         "This is a web application, uses a map to demonstrate the number suicides committed around the globe, according to a dataset provided by the WHO. The application consists of a Leaflet map that colors every nation, based on the number of suicides that have been committed in that country, for that year. It provides us with the capability to select the data as well as the continent."
@@ -298,7 +298,7 @@ let info = {
       ],
       technologies: ["Node", "Angular", "Express", "MySQL", "Facebook API"],
       category: "Web App",
-      github: "https://github.com/hrishikeshpaul/clumpr",
+      github: "https://github.com/Alydiabira",
       date: "Sep, 2017 - Nov, 2017",
       visit: "https://github.com/hrishikeshpaul/clumpr",
       description:
@@ -328,7 +328,7 @@ let info = {
       ],
       technologies: ["Node", "Angular", "Express", "MongDB", "Medical"],
       category: "Website",
-      github: "https://github.com/hrishikeshpaul/clumpr",
+      github: "https://github.com/Alydiabira",
       date: "May, 2017 - Aug, 2017",
       visit: "https://angel.co/projects/576300-nutricare",
       description:
@@ -359,7 +359,7 @@ let info = {
       ],
       technologies: ["XD", "Illustrator"],
       category: "Visual Design",
-      github: "",
+      github: "https://github.com/Alydiabira",
       date: "May, 2020 - Jun, 2020",
       visit: "",
       description:
@@ -384,7 +384,7 @@ let info = {
       ],
       technologies: ["XD", "Illustrator"],
       category: "Visual Design",
-      github: "",
+      github: "https://github.com/Alydiabira",
       date: "May, 2020 - July, 2020",
       visit: "",
       description:
@@ -421,7 +421,7 @@ let info = {
       ],
       technologies: ["XD", "Illustrator"],
       category: "Visual Design",
-      github: "",
+      github: "https://github.com/Alydiabira",
       date: "May, 2020 - July, 2020",
       visit: "",
       description:
