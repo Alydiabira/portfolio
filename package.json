@@ -1,54 +1,39 @@
 {
-  "name": "devfolio",
-  "version": "0.0.1",
-  "description": "Developer portfolio in Vue.js and Bootstrap 5",
-  "main": "index.js",
+  "name": "Aly",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && cp CNAME dist",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.1.2",
-    "@fortawesome/free-brands-svg-icons": "^6.1.2",
-    "@fortawesome/free-regular-svg-icons": "^6.1.2",
-    "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@fortawesome/vue-fontawesome": "^3.0.1",
-    "aos": "^2.3.4",
-    "bootstrap": "^5.2.0",
-    "core-js": "^3.24.1",
-    "vue": "^2.7.16",
-    "vue-meta": "^3.0.0-alpha.10",
-    "vue-router": "^4.1.4",
-    "vuex": "^4.0.2"
+    "@chenfengyuan/vue-carousel": "^1.0.5",
+    "aos": "^3.0.0-beta.6",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "core-js": "^3.6.4",
+    "emailjs-com": "^2.4.1",
+    "material-icons": "^0.3.1",
+    "serve": "^11.3.0",
+    "v-tooltip": "^2.0.3",
+    "vue": "^2.6.11",
+    "vue-cookie": "^1.1.4",
+    "vue-nav-tabs": "^0.5.7",
+    "vue-parallax-js": "^0.2.3",
+    "vue-router": "^3.3.4",
+    "vue-scrollto": "^2.18.1",
+    "vue-selector": "0.0.1",
+    "vueperslides": "^2.10.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.10",
-    "@babel/eslint-parser": "^7.18.9",
-    "@vue/cli-plugin-babel": "~5.0.8",
-    "@vue/cli-plugin-eslint": "~5.0.8",
-    "@vue/cli-plugin-vuex": "~5.0.8",
-    "@vue/cli-service": "~5.0.8",
-    "eslint": "^8.22.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-vue": "^9.3.0",
-    "prettier": "^2.7.1",
-    "sass": "^1.54.5",
-    "sass-loader": "^13.0.2"
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xtenzQ/xtenzQ.github.io.git"
-  },
-  "keywords": [
-    "portfolio",
-    "devfolio"
-  ],
-  "author": "Nikita Rusetskii",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/xtenzQ/xtenzQ.github.io/issues"
-  },
-  "homepage": "https://github.com/xtenzQ/xtenzQ.github.io#readme"
+  "keywords": [],
+  "description": ""
 }
